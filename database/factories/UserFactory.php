@@ -26,7 +26,9 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'username' => fake()->unique()->numerify('2627######'), // Simulasi NISN acak diawali tahun 26/27
             'email' => fake()->unique()->safeEmail(),
+            'role' => 'siswa', // Default sebagai siswa
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
